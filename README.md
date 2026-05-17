@@ -1,7 +1,6 @@
 # 🧪 A/B Testing Case Study — ShopWise UK Product Page Redesign
 
 > End-to-end A/B test analysis with hypothesis testing, power analysis, segmentation, novelty effect detection, and business impact projection.  
-> Built for UK product analyst / data scientist portfolio.
 
 ## 🔴 Live Dashboard
 
