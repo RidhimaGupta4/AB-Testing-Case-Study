@@ -269,7 +269,7 @@ Hold back 5% of traffic on the old design for 30 days post-launch to catch any r
 
 ## Real-World Benchmarks
 
-All synthetic parameters are grounded in publicly documented sources. The data is not real ShopWise data — it is generated to match the statistical properties of real UK e-commerce experiments.
+All synthetic parameters are grounded in publicly documented sources. The data is not real ShopWise data, it is generated to match the statistical properties of real UK e-commerce experiments.
 
 | Parameter | Value Used | Source |
 |:---|:---:|:---|
