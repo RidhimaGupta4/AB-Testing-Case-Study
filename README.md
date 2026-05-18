@@ -283,6 +283,7 @@ Public dataset option: [Kaggle Marketing A/B Testing](https://www.kaggle.com/dat
 ## 📄 Licence
 
 MIT — free to use and adapt
+
 ---
 
 ## 🙋 Author
