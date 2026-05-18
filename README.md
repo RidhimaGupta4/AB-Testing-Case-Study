@@ -199,7 +199,7 @@ The allocation was exactly balanced. A failed SRM check would indicate a bug in 
 
 ---
 
-## Data Integrity
+## 🛡️ Data Integrity
 
 | Check | Result |
 |:---|:---|
@@ -344,7 +344,7 @@ The synthetic data generation is transparent and documented. Every parameter cho
 
 ---
 
-## 🖼️ Chart Gallery
+## 🔍 Visual Insights
 
 ### Primary Results Summary
 ![Primary Results](outputs/01_primary_results_summary.png)
@@ -507,7 +507,7 @@ Public dataset option: [Kaggle Marketing A/B Testing](https://www.kaggle.com/dat
 
 ---
 
-## 💼 Skills Demonstrated
+## 📊 Statistical & Experimental Frameworks
 
 - Experiment design with pre-registration (prevents p-hacking)
 - Sample size and power calculation before data collection
