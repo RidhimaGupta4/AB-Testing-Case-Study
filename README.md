@@ -179,7 +179,7 @@ The result confirms a systematic upward shift in purchase values across the trea
 
 ### Novelty Effect Detection
 
-When users see a new design for the first time, they sometimes engage with it differently simply because it is unfamiliar — not because it is better. This can inflate early results and lead to false conclusions if the experiment is stopped too soon.
+When users see a new design for the first time, they sometimes engage with it differently simply because it is unfamiliar, not because it is better. This can inflate early results and lead to false conclusions if the experiment is stopped too soon.
 
 To check for this, cumulative conversion rates were tracked day-by-day for both groups across the full 14-day window.
 
