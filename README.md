@@ -4,7 +4,7 @@
 
 ## 🔴 Live Dashboard
 
-👉 [**Click here to view the interactive results dashboard**](https://YOUR_USERNAME.github.io/ab-testing-case-study/)
+👉 [**Click here to view the interactive results dashboard**](https://RidhimaGupta4.github.io/ab-testing-case-study/dashboard/)
 
 ---
 
@@ -46,7 +46,7 @@ ab-testing-case-study/
 │       └── group_summary.json       # Group summary for dashboard
 │
 ├── dashboard/
-│   └── index.html                   # ✅ Self-contained interactive dashboard
+│   └── index.html                   # Self-contained interactive dashboard
 │
 ├── report/
 │   └── ab_test_report.md            # Full written analysis report
@@ -109,9 +109,9 @@ Both bounds strictly positive — we are 95% confident the true lift is positive
 Baseline CR           : 3.2%
 Min detectable effect : 15% relative lift
 Required n per group  : 22,605
-Actual n per group    : 24,156  ✅
+Actual n per group    : 24,156  
 Target power          : 80%
-Achieved power        : 96.5%  ✅
+Achieved power        : 96.5%  
 ```
 
 ### Secondary Metrics — Bonferroni Correction
@@ -134,7 +134,7 @@ Day-by-day cumulative conversion rates tracked throughout the experiment. Minor 
 
 ```
 Chi-square on allocation: χ² = 0.000, p = 1.000
-Allocation exactly 50/50 — randomisation is clean ✅
+Allocation exactly 50/50 — randomisation is clean 
 ```
 
 ---
@@ -155,8 +155,8 @@ Allocation exactly 50/50 — randomisation is clean ✅
 
 ```bash
 # 1. Clone
-git clone https://github.com/YOUR_USERNAME/ab-testing-case-study.git
-cd ab-testing-case-study
+git clone https://github.com/RidhimaGupta4/AB-Testing-Case-Study.git
+cd AB-Testing-Case-Study
 
 # 2. Install
 pip install -r requirements.txt
@@ -241,17 +241,17 @@ Public dataset option: [Kaggle Marketing A/B Testing](https://www.kaggle.com/dat
 
 ## 💼 Skills Demonstrated
 
-- ✅ Experiment design with pre-registration (prevents p-hacking)
-- ✅ Sample size and power calculation before data collection
-- ✅ Sample Ratio Mismatch detection (critical sanity check)
-- ✅ Two-proportion z-test with chi-square cross-validation
-- ✅ Non-parametric testing for skewed metrics (Mann-Whitney U)
-- ✅ Multiple comparisons correction (Bonferroni)
-- ✅ Confidence interval construction and interpretation
-- ✅ Novelty effect detection via cumulative tracking
-- ✅ Segmentation analysis with appropriate exploratory framing
-- ✅ Business impact projection with uncertainty quantification
-- ✅ Clear go/no-go recommendation backed by evidence
+- Experiment design with pre-registration (prevents p-hacking)
+- Sample size and power calculation before data collection
+- Sample Ratio Mismatch detection (critical sanity check)
+- Two-proportion z-test with chi-square cross-validation
+- Non-parametric testing for skewed metrics (Mann-Whitney U)
+- Multiple comparisons correction (Bonferroni)
+- Confidence interval construction and interpretation
+- Novelty effect detection via cumulative tracking
+- Segmentation analysis with appropriate exploratory framing
+- Business impact projection with uncertainty quantification
+- Clear go/no-go recommendation backed by evidence
 
 ---
 
