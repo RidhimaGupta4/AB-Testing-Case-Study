@@ -78,7 +78,15 @@ ab-testing-case-study/
 
 ## 📊 Dashboard
 
-Open `dashboard/index.html` directly in any browser — no installation, no server needed.
+Open `dashboard/index.html` directly in any browser. No server, no configuration, no dependencies beyond the file itself.
+
+| Tab | Content |
+|:---|:---|
+| **Overview** | KPI cards · Metric delta bars · Experiment validation checklist |
+| **Statistics** | Hypothesis test results · Power analysis · Secondary metrics · CI plot |
+| **Segmentation** | Lift by device · User type · Product category · Bonferroni corrected |
+| **Timeline** | Cumulative conversion rate day-by-day · Novelty effect annotation |
+| **Business Impact** | Monthly and annual revenue uplift · Conservative / central / optimistic scenarios |
 
 | Tab | Content |
 |---|---|
