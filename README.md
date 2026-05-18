@@ -128,7 +128,7 @@ $H_0$ is rejected. The result was cross-validated using an independent chi-squar
 
 ### Confidence Interval on Absolute Lift
 
-$$\text{CI}_{95\%} = (\hat{p}_T - \hat{p}_C) \pm Z_{0.975} \cdot \text{SE}_{\mathrm{diff}} = [+0.2921\text{ pp},\ +0.9250\text{ pp}]$$
+$$\text{CI}_{95\%} = (\hat{p}_T - \hat{p}_C) \pm Z_{0.975} \cdot \text{SE}_{\text{diff}} = [+0.2921 \text{ pp},\ +0.9250 \text{ pp}]$$
 
 Both bounds are strictly positive. The lift is not only statistically significant — the entire plausible range of its true value is above zero. Even the conservative estimate represents a meaningful conversion improvement.
 
