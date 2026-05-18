@@ -4,7 +4,7 @@
 
 ## 🔴 Live Dashboard
 
-👉 [**Click here to view the interactive results dashboard**](https://RidhimaGupta4.github.io/ab-testing-case-study/dashboard/)
+👉 [**Click here to view the interactive results dashboard**](https://RidhimaGupta4.github.io/AB-Testing-Case-Study/dashboard/)
 
 ---
 
