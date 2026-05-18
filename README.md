@@ -92,7 +92,7 @@ Open `dashboard/index.html` directly in any browser. No server, no configuration
 
 ## 📐 Statistical Methodology
 
-### Experiment Design
+### 📋 Experiment Design
 
 Everything below was fixed before data collection began. This matters because changing thresholds or metrics after seeing results — even unconsciously — inflates the false positive rate and makes any conclusion unreliable. Pre-registration is not optional hygiene; it is what makes the result trustworthy.
 
@@ -112,7 +112,7 @@ Everything below was fixed before data collection began. This matters because ch
 
 ---
 
-### Primary Test — Two-Proportion Z-Test
+### 🔢 Primary Test — Two-Proportion Z-Test
 
 The correct test for comparing two binary conversion rates across large independent samples. Both groups are independent (user-level randomisation), the outcome is binary (purchased or not), and both samples are large enough for the normal approximation to hold.
 
@@ -126,7 +126,7 @@ $H_0$ is rejected. The result was cross-validated using an independent chi-squar
 
 ---
 
-### Confidence Interval on Absolute Lift
+### 📊 Confidence Interval on Absolute Lift
 
 **95% Confidence Interval:** +0.2921 pp to +0.9250 pp (both bounds strictly positive)
 
@@ -134,7 +134,7 @@ Both bounds are strictly positive. The lift is not only statistically significan
 
 ---
 
-### Power Analysis
+### 📉 Power Analysis
 
 Sample size was calculated before the experiment launched using the pre-registered baseline and minimum detectable effect.
 
@@ -151,7 +151,7 @@ The experiment ran with more users than required, which pushed achieved power to
 
 ---
 
-### Secondary Metrics — Bonferroni Correction
+### 🎯 Secondary Metrics — Bonferroni Correction
 
 Testing three secondary metrics simultaneously at α = 0.05 each raises the familywise error rate to approximately 14%. To keep it at 5%, Bonferroni correction was applied, reducing each individual threshold to α/3 = 0.0167.
 
@@ -165,7 +165,7 @@ All three remained significant after correction.
 
 ---
 
-### Why Mann-Whitney U for Revenue
+### 🧮 Why Mann-Whitney U for Revenue
 
 Revenue per visitor is not normally distributed. It has a long right tail caused by occasional high-value orders — a shape that is better described as lognormal. Running a t-test on this data would violate the normality assumption and produce unreliable p-values.
 
@@ -177,7 +177,7 @@ The result confirms a systematic upward shift in purchase values across the trea
 
 ---
 
-### Novelty Effect Detection
+### 📈 Novelty Effect Detection
 
 When users see a new design for the first time, they sometimes engage with it differently simply because it is unfamiliar, not because it is better. This can inflate early results and lead to false conclusions if the experiment is stopped too soon.
 
@@ -189,7 +189,7 @@ The early elevation is minor and consistent with a brief novelty response. It do
 
 ---
 
-### Sample Ratio Mismatch Check
+### ⚙️ Sample Ratio Mismatch Check
 
 Before analysing any metric, the allocation was verified using a chi-square goodness-of-fit test against the expected 50/50 split.
 
@@ -214,7 +214,7 @@ The allocation was exactly balanced. A failed SRM check would indicate a bug in 
 
 ---
 
-## Business Impact
+## 💼 Business Impact
 
 **Assumptions:**
 - Monthly site visitors extrapolated from the 14-day experiment window: 103,524
@@ -234,7 +234,7 @@ The wide confidence interval reflects revenue variance, not uncertainty about th
 
 ---
 
-## Decision and Next Steps
+## 🚀 Decision and Next Steps
 
 **Decision: Ship.**
 
@@ -324,7 +324,7 @@ xdg-open dashboard/index.html    # Linux
 
 ---
 
-## Limitations
+## ⚠️ Limitations
 
 This experiment ran for 14 days in January 2024 — a post-holiday period with relatively stable traffic. Results may differ during high-volatility windows like Black Friday, seasonal sales, or major product launches when user intent and behaviour shift significantly.
 
@@ -336,7 +336,7 @@ Long-term retention effects are not captured here. The experiment measures wheth
 
 ---
 
-## Ethics and Data Handling
+## ⚖️ Ethics and Data Handling
 
 All user identifiers in this dataset are anonymised tokens. No personal data, IP addresses, cookies, or tracking parameters are stored or processed at any point. The analysis is GDPR compliant by design — there is nothing in this dataset that could identify an individual user.
 
@@ -369,7 +369,7 @@ The synthetic data generation is transparent and documented. Every parameter cho
 
 ---
 
-## What This Project Demonstrates
+## 💡 What This Project Demonstrates
 
 This project was built to show end-to-end product analytics thinking — not just running a test and reporting a p-value. The experiment was pre-registered before data collection to prevent p-hacking. The revenue metric was tested non-parametrically because a t-test on lognormal data gives wrong answers. The segmentation results are explicitly framed as exploratory to avoid overclaiming from underpowered sub-groups.
 
@@ -390,31 +390,6 @@ The SRM check, novelty effect detection, and Bonferroni correction are the thing
 - Segmentation analysis with appropriate exploratory framing
 - Business impact projection with uncertainty quantification
 - Clear go/no-go recommendation backed by evidence
-
----
-
-## 🔍 Visual Insights
-
-### Primary Results Summary
-![Primary Results](outputs/01_primary_results_summary.png)
-
-### Cumulative Conversion Rate — 14 Days
-![Cumulative CR](outputs/02_cumulative_conversion_rate.png)
-
-### 95% Confidence Intervals
-![Confidence Intervals](outputs/03_confidence_intervals.png)
-
-### Segmentation Analysis
-![Segmentation](outputs/04_segmentation_analysis.png)
-
-### Power Analysis Curve
-![Power Analysis](outputs/05_power_analysis_curve.png)
-
-### Revenue Distribution
-![Revenue](outputs/06_revenue_distribution.png)
-
-### Business Impact Projection
-![Business Impact](outputs/07_business_impact.png)
 
 ---
 
