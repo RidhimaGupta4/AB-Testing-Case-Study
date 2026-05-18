@@ -242,7 +242,7 @@ The result is statistically significant (p = 0.000164), the confidence interval 
 
 **Recommended follow-up actions:**
 
-Hold back 5% of traffic on the old design for 30 days post-launch to catch any regression that does not show up immediately. New users showed a smaller, non-significant lift (+9.6% vs +26.9% for returning users) — the simplified checkout may assume familiarity with the site that new users do not yet have. A dedicated new-user onboarding test should follow. Tablet users also showed the smallest lift (+12.9%), which likely reflects a responsive design issue worth investigating separately.
+Hold back 5% of traffic on the old design for 30 days post-launch to catch any regression that does not show up immediately. New users showed a smaller, non-significant lift (+9.6% vs +26.9% for returning users), the simplified checkout may assume familiarity with the site that new users do not yet have. A dedicated new-user onboarding test should follow. Tablet users also showed the smallest lift (+12.9%), which likely reflects a responsive design issue worth investigating separately.
 
 ---
 
@@ -326,7 +326,7 @@ xdg-open dashboard/index.html    # Linux
 
 ## ⚠️ Limitations
 
-This experiment ran for 14 days in January 2024 — a post-holiday period with relatively stable traffic. Results may differ during high-volatility windows like Black Friday, seasonal sales, or major product launches when user intent and behaviour shift significantly.
+This experiment ran for 14 days in January 2024, a post-holiday period with relatively stable traffic. Results may differ during high-volatility windows like Black Friday, seasonal sales, or major product launches when user intent and behaviour shift significantly.
 
 The revenue confidence interval is intentionally wide (£223k–£708k). This reflects the natural variance in order values, not uncertainty about the conversion lift. Thirty days of post-launch data will narrow this range.
 
@@ -338,7 +338,7 @@ Long-term retention effects are not captured here. The experiment measures wheth
 
 ## ⚖️ Ethics and Data Handling
 
-All user identifiers in this dataset are anonymised tokens. No personal data, IP addresses, cookies, or tracking parameters are stored or processed at any point. The analysis is GDPR compliant by design — there is nothing in this dataset that could identify an individual user.
+All user identifiers in this dataset are anonymised tokens. No personal data, IP addresses, cookies, or tracking parameters are stored or processed at any point. The analysis is GDPR compliant by design, there is nothing in this dataset that could identify an individual user.
 
 The synthetic data generation is transparent and documented. Every parameter choice references a public benchmark, and the random seed is fixed so anyone can reproduce the exact dataset from the scripts.
 
@@ -356,7 +356,7 @@ The synthetic data generation is transparent and documented. Every parameter cho
 
 ### 🗺️ Absolute Margin Boundaries (95% CI Across All Metrics)
 ![Confidence Intervals](outputs/03_confidence_intervals.png)
-> **Analysis:** Evaluates the statistical precision of the observed lifts. By mapping the absolute 95% Confidence Intervals, this visualization provides a strict safety margin for decision-making. Because the entire interval boundaries for conversion lift ($[+0.2921\text{ pp}, \; +0.9250\text{ pp}]$) and secondary metrics remain safely above the zero-line threshold, we eliminate the risk of a Type I error (false discovery), mathematically proving that the positive performance is not an artifact of random variance.
+> **Analysis:** Evaluates the statistical precision of the observed lifts. By mapping the absolute 95% Confidence Intervals, this visualization provides a strict safety margin for decision-making. Because the entire interval boundaries for conversion lift $[+0.2921\text{ pp}, \; +0.9250\text{ pp}]$ and secondary metrics remain safely above the zero-line threshold, we eliminate the risk of a Type I error (false discovery), mathematically proving that the positive performance is not an artifact of random variance.
 
 ### 🎯 Categorical Customer Segmentation Analysis
 ![Segmentation](outputs/04_segmentation_analysis.png)
@@ -378,9 +378,9 @@ The synthetic data generation is transparent and documented. Every parameter cho
 
 ## 💡 What This Project Demonstrates
 
-This project was built to show end-to-end product analytics thinking — not just running a test and reporting a p-value. The experiment was pre-registered before data collection to prevent p-hacking. The revenue metric was tested non-parametrically because a t-test on lognormal data gives wrong answers. The segmentation results are explicitly framed as exploratory to avoid overclaiming from underpowered sub-groups.
+This project was built to show end-to-end product analytics thinking, not just running a test and reporting a p-value. The experiment was pre-registered before data collection to prevent p-hacking. The revenue metric was tested non-parametrically because a t-test on lognormal data gives wrong answers. The segmentation results are explicitly framed as exploratory to avoid overclaiming from underpowered sub-groups.
 
-The SRM check, novelty effect detection, and Bonferroni correction are the things that separate analysts who understand experimentation from those who only know the formula. The business impact section translates the statistical result into a number a finance team or product manager can act on — with an honest confidence range rather than a single point estimate.
+The SRM check, novelty effect detection, and Bonferroni correction are the things that separate analysts who understand experimentation from those who only know the formula. The business impact section translates the statistical result into a number a finance team or product manager can act on, with an honest confidence range rather than a single point estimate.
 
 ---
 
