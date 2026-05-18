@@ -3,6 +3,7 @@
 This folder contains all data used in the experiment analysis.
 
 ## Structure
+```
 ├── data/
 │   └── processed/
 │       ├── experiment_data.csv      # 48,312 rows — one row per user
@@ -11,6 +12,7 @@ This folder contains all data used in the experiment analysis.
 │       ├── analysis_results.json    # Full results JSON (used by dashboard)
 │       ├── daily_summary.json       # Daily data for dashboard
 │       └── group_summary.json       # Group summary for dashboard
+```
 
 ## How to generate all files
 
