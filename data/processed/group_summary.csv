@@ -1,0 +1,3 @@
+group,users,conversions,atc,total_rev,bounces,avg_session,conversion_rate_pct,atc_rate_pct,bounce_rate_pct,rpv,avg_order_value
+control,24156,713,2875,38674.47,9163,226.52761218744826,2.9516,11.9018,37.9326,1.601,54.24
+treatment,24156,860,3352,47728.82,7959,241.8824722636198,3.5602,13.8765,32.9483,1.9759,55.5

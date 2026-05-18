@@ -1,0 +1,279 @@
+{
+  "sanity": {
+    "n_control": 24156,
+    "n_treatment": 24156,
+    "duplicates": 0,
+    "srm_p": 1.0,
+    "srm_pass": true,
+    "days": 14
+  },
+  "descriptive": {
+    "control_cr": 2.9516,
+    "treatment_cr": 3.5602,
+    "abs_lift_pp": 0.6085,
+    "rel_lift_pct": 20.62,
+    "control_rpv": 1.601,
+    "treatment_rpv": 1.9759,
+    "control_bounce": 37.93,
+    "treatment_bounce": 32.95
+  },
+  "power": {
+    "n_required_per_group": 22605,
+    "n_actual_per_group": 24156,
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "achieved_power": 0.965,
+    "mde_relative": 0.15,
+    "baseline_cr": 0.032,
+    "adequately_powered": true
+  },
+  "primary_test": {
+    "z_stat": 3.7683,
+    "p_value": 0.000164,
+    "reject_h0": true,
+    "cohens_h": 0.0343,
+    "h_magnitude": "small",
+    "chi2_stat": 14.1998,
+    "chi2_p": 0.000164,
+    "ci_lower_pp": 0.2921,
+    "ci_upper_pp": 0.925,
+    "control_cr_pct": 2.9516,
+    "treatment_cr_pct": 3.5602,
+    "abs_lift_pp": 0.6085,
+    "rel_lift_pct": 20.62
+  },
+  "secondary_metrics": [
+    {
+      "metric": "Add-to-cart rate",
+      "control": 11.9018,
+      "treatment": 13.8765,
+      "lift_pct": 16.59,
+      "raw_p": 0.0,
+      "adj_p": 0.0,
+      "significant": true
+    },
+    {
+      "metric": "Revenue per visitor (\u00a3)",
+      "control": 1.601,
+      "treatment": 1.9759,
+      "lift_pct": 23.41,
+      "raw_p": 0.00015,
+      "adj_p": 0.00044,
+      "significant": true
+    },
+    {
+      "metric": "Bounce rate",
+      "control": 37.9326,
+      "treatment": 32.9483,
+      "lift_pct": -13.14,
+      "raw_p": 0.0,
+      "adj_p": 0.0,
+      "significant": true
+    }
+  ],
+  "segmentation": [
+    {
+      "segment": "device=mobile",
+      "n_control": 15139,
+      "n_treatment": 15242,
+      "cr_control": 2.418,
+      "cr_treatment": 3.044,
+      "lift_pct": 25.92,
+      "adj_p": 0.0024,
+      "significant": true
+    },
+    {
+      "segment": "device=desktop",
+      "n_control": 7554,
+      "n_treatment": 7411,
+      "cr_control": 3.932,
+      "cr_treatment": 4.561,
+      "lift_pct": 16.0,
+      "adj_p": 0.1688,
+      "significant": false
+    },
+    {
+      "segment": "device=tablet",
+      "n_control": 1463,
+      "n_treatment": 1503,
+      "cr_control": 3.418,
+      "cr_treatment": 3.859,
+      "lift_pct": 12.91,
+      "adj_p": 1.0,
+      "significant": false
+    },
+    {
+      "segment": "is_new_user=0",
+      "n_control": 14309,
+      "n_treatment": 14307,
+      "cr_control": 3.166,
+      "cr_treatment": 4.019,
+      "lift_pct": 26.95,
+      "adj_p": 0.0002,
+      "significant": true
+    },
+    {
+      "segment": "is_new_user=1",
+      "n_control": 9847,
+      "n_treatment": 9849,
+      "cr_control": 2.64,
+      "cr_treatment": 2.894,
+      "lift_pct": 9.59,
+      "adj_p": 0.5571,
+      "significant": false
+    },
+    {
+      "segment": "category=Electronics",
+      "n_control": 5292,
+      "n_treatment": 5277,
+      "cr_control": 3.118,
+      "cr_treatment": 3.866,
+      "lift_pct": 23.99,
+      "adj_p": 0.1811,
+      "significant": false
+    },
+    {
+      "segment": "category=Clothing",
+      "n_control": 7156,
+      "n_treatment": 7363,
+      "cr_control": 2.921,
+      "cr_treatment": 3.585,
+      "lift_pct": 22.76,
+      "adj_p": 0.1203,
+      "significant": false
+    },
+    {
+      "segment": "category=Home & Garden",
+      "n_control": 4346,
+      "n_treatment": 4308,
+      "cr_control": 3.106,
+      "cr_treatment": 3.668,
+      "lift_pct": 18.07,
+      "adj_p": 0.7444,
+      "significant": false
+    },
+    {
+      "segment": "category=Sports",
+      "n_control": 3703,
+      "n_treatment": 3682,
+      "cr_control": 2.619,
+      "cr_treatment": 3.286,
+      "lift_pct": 25.45,
+      "adj_p": 0.4526,
+      "significant": false
+    },
+    {
+      "segment": "category=Beauty",
+      "n_control": 3659,
+      "n_treatment": 3526,
+      "cr_control": 2.924,
+      "cr_treatment": 3.205,
+      "lift_pct": 9.59,
+      "adj_p": 1.0,
+      "significant": false
+    }
+  ],
+  "novelty": [
+    {
+      "day": 0,
+      "control_cum_cr": 2.5452,
+      "treatment_cum_cr": 3.6024,
+      "daily_lift_pp": 1.057
+    },
+    {
+      "day": 1,
+      "control_cum_cr": 2.5106,
+      "treatment_cum_cr": 3.6854,
+      "daily_lift_pp": 1.288
+    },
+    {
+      "day": 2,
+      "control_cum_cr": 2.5283,
+      "treatment_cum_cr": 3.7685,
+      "daily_lift_pp": 1.35
+    },
+    {
+      "day": 3,
+      "control_cum_cr": 2.5441,
+      "treatment_cum_cr": 3.6407,
+      "daily_lift_pp": 0.717
+    },
+    {
+      "day": 4,
+      "control_cum_cr": 2.7939,
+      "treatment_cum_cr": 3.7574,
+      "daily_lift_pp": 0.512
+    },
+    {
+      "day": 5,
+      "control_cum_cr": 2.9448,
+      "treatment_cum_cr": 3.7069,
+      "daily_lift_pp": -0.137
+    },
+    {
+      "day": 6,
+      "control_cum_cr": 2.9067,
+      "treatment_cum_cr": 3.675,
+      "daily_lift_pp": 0.812
+    },
+    {
+      "day": 7,
+      "control_cum_cr": 2.9802,
+      "treatment_cum_cr": 3.635,
+      "daily_lift_pp": -0.33
+    },
+    {
+      "day": 8,
+      "control_cum_cr": 2.9721,
+      "treatment_cum_cr": 3.7035,
+      "daily_lift_pp": 1.402
+    },
+    {
+      "day": 9,
+      "control_cum_cr": 2.9807,
+      "treatment_cum_cr": 3.6892,
+      "daily_lift_pp": 0.517
+    },
+    {
+      "day": 10,
+      "control_cum_cr": 2.9725,
+      "treatment_cum_cr": 3.6053,
+      "daily_lift_pp": -0.084
+    },
+    {
+      "day": 11,
+      "control_cum_cr": 2.9572,
+      "treatment_cum_cr": 3.5171,
+      "daily_lift_pp": -0.149
+    },
+    {
+      "day": 12,
+      "control_cum_cr": 2.9319,
+      "treatment_cum_cr": 3.5684,
+      "daily_lift_pp": 1.435
+    },
+    {
+      "day": 13,
+      "control_cum_cr": 2.9516,
+      "treatment_cum_cr": 3.5602,
+      "daily_lift_pp": 0.208
+    }
+  ],
+  "novelty_concern": true,
+  "business_impact": {
+    "monthly_visitors": 103524,
+    "control_aov": 54.24,
+    "treatment_aov": 55.5,
+    "monthly_uplift_gbp": 38804.0,
+    "annual_uplift_gbp": 465645.0,
+    "annual_ci_lower": 223487.0,
+    "annual_ci_upper": 707802.0
+  },
+  "recommendation": {
+    "decision": "SHIP",
+    "p_value": 0.000164,
+    "ci_lower_pp": 0.2921,
+    "ci_upper_pp": 0.925,
+    "annual_uplift_gbp": 465645.0
+  }
+}
