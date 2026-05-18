@@ -1,28 +1,37 @@
 # 🧪 A/B Testing Case Study — ShopWise UK Product Page Redesign
 
-> End-to-end A/B test analysis with hypothesis testing, power analysis, segmentation, novelty effect detection, and business impact projection.  
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
+![SciPy](https://img.shields.io/badge/Stats-SciPy%20%2F%20Statsmodels-00539C?style=flat-square)
+![Method](https://img.shields.io/badge/Method-Two--Proportion%20Z--Test-success?style=flat-square)
+![Impact](https://img.shields.io/badge/Annual%20Impact-%C2%A3465%2C645-brightgreen?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
+
+> End-to-end A/B test analysis examining a checkout-funnel redesign across 48,312 users.
+> Implements power calculations, segmentation controls, novelty effect detection, and business impact projection.
 
 ## 🔴 Live Dashboard
 
-👉 [**Click here to view the interactive results dashboard**](https://RidhimaGupta4.github.io/AB-Testing-Case-Study/dashboard/)
+[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-1d4ed8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://RidhimaGupta4.github.io/AB-Testing-Case-Study/dashboard/)
 
 ---
 
-## 📌 Project Summary
+## Project Summary
 
-ShopWise UK tested a redesigned product page — new CTA button and simplified 3-step checkout — against the existing design over 14 days across 48,312 users.
+ShopWise UK tested a redesigned product page — a new CTA button and a simplified 3-step checkout flow — against the existing design over 14 days and 48,312 unique users.
 
 **Business question:** Does the redesigned product page convert more visitors into buyers, and is the effect large enough to justify a full rollout?
 
 **Answer: Yes. Ship it.**
 
-| Metric | Control | Treatment | Lift | Significant |
-|---|---|---|---|---|
-| Conversion rate | 2.9516% | 3.5602% | **+20.6%** | ✅ p = 0.000164 |
-| Add-to-cart rate | 11.90% | 13.88% | +16.6% | ✅ |
-| Revenue per visitor | £1.601 | £1.976 | +23.4% | ✅ |
-| Bounce rate | 37.93% | 32.95% | −13.1% | ✅ |
-| **Projected annual uplift** | | | **£465,645** | |
+| Metric | Control | Treatment | Relative Lift | Result |
+|:---|:---:|:---:|:---:|:---|
+| Conversion Rate | 2.9516% | 3.5602% | +20.6% | p = 0.000164 |
+| Add-to-Cart Rate | 11.90% | 13.88% | +16.6% | p < 0.0001 (adj) |
+| Revenue per Visitor | £1.601 | £1.976 | +23.4% | p = 0.00044 (adj) |
+| Bounce Rate | 37.93% | 32.95% | −13.1% | p < 0.0001 (adj) |
+| Projected Annual Uplift | — | — | — | £465,645 |
+
+Every metric moved in the right direction. The conversion lift is statistically significant, the confidence interval sits entirely above zero, and the result held steady across the full 14-day window with no signs of novelty inflation. The recommendation is to ship.
 
 ---
 
