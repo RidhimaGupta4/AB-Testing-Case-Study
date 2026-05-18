@@ -255,7 +255,7 @@ Public dataset option: [Kaggle Marketing A/B Testing](https://www.kaggle.com/dat
 
 ---
 
-## 🖼️ Chart Gallery
+## 🔍 Visual Insights
 
 ### Primary Results Summary
 ![Primary Results](outputs/01_primary_results_summary.png)
@@ -282,4 +282,19 @@ Public dataset option: [Kaggle Marketing A/B Testing](https://www.kaggle.com/dat
 
 ## 📄 Licence
 
-MIT — free to adapt and extend.
+MIT — free to use and adapt
+---
+
+## 🙋 Author
+
+Built as a UK data analyst / data scientist portfolio project.
+
+**Connect:** [LinkedIn](https://www.linkedin.com/in/ridhimagupta1623/) · [GitHub](https://github.com/RidhimaGupta4) 
+
+> If this project helped you, please ⭐ star the repo — it helps others find it.
+
+## 📁 Explore More Projects
+
+*   **[🏠 UK Property Price Predictor](https://github.com/RidhimaGupta4/UK-Property-Price-Predictor)** — High-accuracy ML pipeline for real estate valuation and geospatial analysis.
+*   **[🛒 E-commerce Churn Analysis](https://github.com/RidhimaGupta4/Ecommerce-Churn-Analysis)** — Customer segmentation, RFM modeling, and retention strategy.
+*   **[🇬🇧 UK Cost-of-Living Dashboard](https://github.com/RidhimaGupta4/UK-Cost-of-Living)** — Regional economic data storytelling and affordability mapping.
