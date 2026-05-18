@@ -285,15 +285,15 @@ To run this analysis on real data, replace `data/processed/experiment_data.csv` 
 
 ## 🧰 Tech Stack
 
-| Tool | Version | Role |
-|:---|:---:|:---|
-| Python | 3.10+ | Core language |
-| pandas | 2.0+ | Data manipulation and aggregation |
-| NumPy | 1.24+ | Numerical computation |
-| SciPy | 1.10+ | Z-test, chi-square, Mann-Whitney U |
-| statsmodels | 0.14+ | Power analysis and proportion tests |
-| matplotlib | 3.7+ | Static chart generation |
-| Chart.js | 4.4.1 | Interactive dashboard |
+| Tool | Badge | Role | Application |
+| :--- | :--- | :--- | :--- |
+| **Python** | ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white) | Core Language | Architectural pipeline logic and synthetic user generation engine. |
+| **SciPy** | ![SciPy](https://img.shields.io/badge/SciPy-Math-00539C?style=flat-square) | Inferential Math | Distribution handling, Mann-Whitney U test execution, and precise $p$-value estimation. |
+| **Statsmodels** | ![Statsmodels](https://img.shields.io/badge/Statsmodels-Inference-00539C?style=flat-square) | Frequentist Tools | Parametric hypothesis evaluations, Two-Proportion Z-tests, and pre-test power calculations. |
+| **Pandas** | ![Pandas](https://img.shields.io/badge/Pandas-Data-150458?style=flat-square&logo=pandas&logoColor=white) | Manipulation | Chronological rolling summaries, windowed data transformations, and group cohort aggregation. |
+| **NumPy** | ![NumPy](https://img.shields.io/badge/NumPy-Arrays-013243?style=flat-square&logo=numpy&logoColor=white) | Vectorization | Mathematical operations for standard error modeling, variance tracking, and array allocation. |
+| **Chart.js** | ![Chart.js](https://img.shields.io/badge/Chart.js-UI-FF6384?style=flat-square&logo=chartdotjs&logoColor=white) | Visual Layer | Native dashboard scripting, real-time client inference rendering, and revenue trajectory simulators. |
+| **Matplotlib** | ![Matplotlib](https://img.shields.io/badge/Matplotlib-Plots-11557C?style=flat-square) | Static Reports | Publication-quality data visualizations, cumulative trend line outputs, and confusion matrices. |
 
 ---
 
