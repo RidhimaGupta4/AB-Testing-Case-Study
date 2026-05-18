@@ -88,14 +88,6 @@ Open `dashboard/index.html` directly in any browser. No server, no configuration
 | **Timeline** | Cumulative conversion rate day-by-day · Novelty effect annotation |
 | **Business Impact** | Monthly and annual revenue uplift · Conservative / central / optimistic scenarios |
 
-| Tab | Content |
-|---|---|
-| **Overview** | KPI cards, primary metric bars, validation checklist |
-| **Statistics** | Hypothesis test results, power analysis, secondary metrics, CI plot |
-| **Segmentation** | Lift by device / user type / category with Bonferroni correction |
-| **Timeline** | Cumulative conversion rate day-by-day, novelty effect chart |
-| **Business Impact** | Monthly and annual revenue uplift, scenario range |
-
 ---
 
 ## 📐 Statistical Methods
