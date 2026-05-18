@@ -90,37 +90,62 @@ Open `dashboard/index.html` directly in any browser. No server, no configuration
 
 ---
 
-## 📐 Statistical Methods
+## 📐 Statistical Methodology
+
+### Experiment Design
+
+Everything below was fixed before data collection began. This matters because changing thresholds or metrics after seeing results — even unconsciously — inflates the false positive rate and makes any conclusion unreliable. Pre-registration is not optional hygiene; it is what makes the result trustworthy.
+
+| Parameter | Value | Reason |
+|:---|:---:|:---|
+| Randomisation unit | User-level | Session-level causes within-user contamination |
+| Traffic split | 50 / 50 | Symmetric split maximises power for a given total n |
+| Primary metric | Conversion rate | Direct measure of the business objective |
+| Secondary metrics | ATC rate, RPV, Bounce rate | Funnel leading indicators |
+| Significance level (α) | 0.05 two-tailed | Standard threshold — no directional assumption |
+| Target power (1−β) | 80% | Accepted minimum for product experiments |
+| Minimum detectable effect | 15% relative lift | Smallest lift that justifies infrastructure cost |
+| Required n per group | 22,605 | Calculated from power analysis before launch |
+| Planned duration | 14 days | Two full Mon–Sun cycles to capture weekly patterns |
+
+**On the choice of 14 days:** Running for exactly two weekly cycles ensures the result is not distorted by day-of-week traffic patterns. Stopping as soon as significance is reached — even if the p-value looks compelling — causes the peeking problem. Every time you check an in-flight experiment and decide whether to stop, you are running an implicit test, and the false positive rate compounds. The duration was set in advance and not adjusted.
+
+---
 
 ### Primary Test — Two-Proportion Z-Test
 
-```
-H₀: CR_treatment = CR_control
-H₁: CR_treatment ≠ CR_control  (two-tailed)
+The correct test for comparing two binary conversion rates across large independent samples. Both groups are independent (user-level randomisation), the outcome is binary (purchased or not), and both samples are large enough for the normal approximation to hold.
 
-z = 3.7683    p = 0.000164    α = 0.05
-Decision: REJECT H₀
-```
+$$H_0: CR_{\text{treatment}} = CR_{\text{control}}$$
 
-Cross-validated with chi-square: χ² = 14.1998, p = 0.000164. Since z² ≈ χ², both methods agree exactly.
+$$H_1: CR_{\text{treatment}} \neq CR_{\text{control}} \quad \text{(two-tailed)}$$
 
-### 95% Confidence Interval on Absolute Lift
+$$Z = \frac{\hat{p}_T - \hat{p}_C}{\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_T} + \frac{1}{n_C}\right)}} = 3.7683 \implies p = 0.000164$$
 
-```
-[+0.2921 pp ,  +0.9250 pp]
-```
+$H_0$ is rejected. The result was cross-validated using an independent chi-square test, which gave $\chi^2 = 14.1998$, $p = 0.000164$. Since $Z^2 = 3.7683^2 = 14.20 \approx \chi^2$, both methods agree to four decimal places. This rules out a numerical artifact in either test.
 
-Both bounds strictly positive — we are 95% confident the true lift is positive.
+---
+
+### Confidence Interval on Absolute Lift
+
+$$\text{CI}_{95\%} = (\hat{p}_T - \hat{p}_C) \pm Z_{0.975} \cdot \text{SE}_{\text{diff}} = [+0.2921\text{ pp},\ +0.9250\text{ pp}]$$
+
+Both bounds are strictly positive. The lift is not only statistically significant — the entire plausible range of its true value is above zero. Even the conservative estimate represents a meaningful conversion improvement.
+
+---
 
 ### Power Analysis
 
+Sample size was calculated before the experiment launched using the pre-registered baseline and minimum detectable effect.
+
 ```
-Baseline CR           : 3.2%
-Min detectable effect : 15% relative lift
-Required n per group  : 22,605
-Actual n per group    : 24,156  
-Target power          : 80%
-Achieved power        : 96.5%  
+Baseline conversion rate  : 3.20% (30-day prior average)
+Minimum detectable effect : 15% relative lift → 3.20% × 1.15 = 3.68%
+Effect size (Cohen's h)   : 0.0283
+Required n per group      : 22,605
+Actual n per group        : 24,156
+Target power (1−β)        : 80%
+Achieved power            : 96.5%
 ```
 
 ### Secondary Metrics — Bonferroni Correction
