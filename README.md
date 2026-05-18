@@ -147,6 +147,240 @@ Actual n per group        : 24,156
 Target power (1−β)        : 80%
 Achieved power            : 96.5%
 ```
+The experiment ran with more users than required, which pushed achieved power to 96.5%. This means the probability of missing a true effect of the pre-registered size was under 3.5%.
+
+---
+
+### Secondary Metrics — Bonferroni Correction
+
+Testing three secondary metrics simultaneously at α = 0.05 each raises the familywise error rate to approximately 14%. To keep it at 5%, Bonferroni correction was applied, reducing each individual threshold to α/3 = 0.0167.
+
+| Metric | Test | Why This Test |
+|:---|:---|:---|
+| Add-to-cart rate | Two-proportion z-test | Binary outcome, large n |
+| Revenue per visitor | Mann-Whitney U | Lognormal distribution — see below |
+| Bounce rate | Two-proportion z-test | Binary outcome, large n |
+
+All three remained significant after correction.
+
+---
+
+### Why Mann-Whitney U for Revenue
+
+Revenue per visitor is not normally distributed. It has a long right tail caused by occasional high-value orders — a shape that is better described as lognormal. Running a t-test on this data would violate the normality assumption and produce unreliable p-values.
+
+Mann-Whitney U tests whether one distribution is stochastically greater than another without assuming any particular shape. It is the correct choice here.
+
+$$U = \sum_{i=1}^{n_T} R_i - \frac{n_T(n_T+1)}{2} \implies p = 0.00044 \text{ (Bonferroni adjusted)}$$
+
+The result confirms a systematic upward shift in purchase values across the treatment group — not a random effect driven by a handful of outlier transactions.
+
+---
+
+### Novelty Effect Detection
+
+When users see a new design for the first time, they sometimes engage with it differently simply because it is unfamiliar — not because it is better. This can inflate early results and lead to false conclusions if the experiment is stopped too soon.
+
+To check for this, cumulative conversion rates were tracked day-by-day for both groups across the full 14-day window.
+
+Days 1–3 showed a slightly elevated daily lift (average +1.23pp). From day 4 onward the lift stabilised at approximately +0.45pp per day and remained consistently positive through the end of the experiment. The final result is drawn from the full 14-day cumulative rate.
+
+The early elevation is minor and consistent with a brief novelty response. It does not invalidate the result, but post-launch monitoring for 30 days is recommended to confirm the lift is sustained.
+
+---
+
+### Sample Ratio Mismatch Check
+
+Before analysing any metric, the allocation was verified using a chi-square goodness-of-fit test against the expected 50/50 split.
+
+$$\chi^2 = 0.000, \quad p = 1.000$$
+
+The allocation was exactly balanced. A failed SRM check would indicate a bug in the randomisation logic, which would make all downstream results meaningless regardless of how significant they appear. This check runs first, always.
+
+---
+
+## Data Integrity
+
+| Check | Result |
+|:---|:---|
+| Sample Ratio Mismatch | Passed — χ² = 0.000, p = 1.000 |
+| Duplicate users | None — 0 duplicates across 48,312 rows |
+| Temporal continuity | Complete — all 14 days present |
+| Minimum cell sizes | Met — all segments n > 30 |
+| Multiple testing | Bonferroni applied to all 3 secondary metrics |
+| Revenue test | Mann-Whitney U — t-test not used on skewed data |
+| Novelty effect | Checked and documented — lift stable from day 4 |
+| Reproducibility | Fixed seed (np.random.seed(2024)) — outputs are identical across runs |
+
+---
+
+## Business Impact
+
+**Assumptions:**
+- Monthly site visitors extrapolated from the 14-day experiment window: 103,524
+- Conversion lift sustained at the observed +0.6085pp
+- Average order values: Control £54.24, Treatment £55.50
+- Flat monthly traffic (conservative — no seasonal growth assumed)
+
+| Scenario | Annual Revenue Uplift |
+|:---|:---|
+| Conservative (95% CI lower) | £223,487 |
+| Central estimate | £465,645 |
+| Optimistic (95% CI upper) | £707,802 |
+
+Monthly uplift at central estimate: £38,804.
+
+The wide confidence interval reflects revenue variance, not uncertainty about the conversion lift itself. Thirty days of post-launch data will tighten this range considerably.
+
+---
+
+## Decision and Next Steps
+
+**Decision: Ship.**
+
+The result is statistically significant (p = 0.000164), the confidence interval sits entirely above zero, all secondary metrics improved and survived multiple-testing correction, the experiment was adequately powered at 96.5%, and the lift was stable across the full 14-day window.
+
+**Recommended follow-up actions:**
+
+Hold back 5% of traffic on the old design for 30 days post-launch to catch any regression that does not show up immediately. New users showed a smaller, non-significant lift (+9.6% vs +26.9% for returning users) — the simplified checkout may assume familiarity with the site that new users do not yet have. A dedicated new-user onboarding test should follow. Tablet users also showed the smallest lift (+12.9%), which likely reflects a responsive design issue worth investigating separately.
+
+---
+
+## 🗃️ Data Schema
+
+### `experiment_data.csv` — 48,312 rows
+
+| Column | Type | Description |
+|:---|:---|:---|
+| `user_id` | VARCHAR | Unique user identifier |
+| `group` | VARCHAR | `control` or `treatment` |
+| `visit_date` | DATE | Date of experiment visit (YYYY-MM-DD) |
+| `day_number` | INT | Day 0–13 of the experiment |
+| `device` | VARCHAR | `mobile`, `desktop`, or `tablet` |
+| `category` | VARCHAR | Product category browsed |
+| `is_new_user` | BOOLEAN | 1 = new user, 0 = returning |
+| `converted` | BOOLEAN | 1 = purchased, 0 = did not purchase |
+| `add_to_cart` | BOOLEAN | 1 = added item to cart |
+| `revenue_gbp` | DECIMAL | Order value in GBP — 0.00 if no purchase |
+| `session_duration_sec` | INT | Total session length in seconds |
+| `bounced` | BOOLEAN | 1 = left without any interaction |
+
+---
+
+## Real-World Benchmarks
+
+All synthetic parameters are grounded in publicly documented sources. The data is not real ShopWise data — it is generated to match the statistical properties of real UK e-commerce experiments.
+
+| Parameter | Value Used | Source |
+|:---|:---:|:---|
+| Baseline conversion rate | 3.2% | Statista UK E-Commerce Report 2023 |
+| Average order value | £45.50 | ONS Retail Sales Index 2023 |
+| Mobile traffic share | 63% | Ofcom Connected Nations 2023 |
+| New user share | 41% | Industry average for established UK retailers |
+| Typical MDE range | 15–20% | Optimizely and VWO published benchmarks |
+
+To run this analysis on real data, replace `data/processed/experiment_data.csv` with your own export. The minimum required columns are `user_id`, `group`, `visit_date`, `converted`, and `revenue_gbp`. A publicly available alternative is the [Kaggle Marketing A/B Testing dataset](https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing) with 588,101 rows and a binary conversion outcome.
+
+---
+
+## 🧰 Tech Stack
+
+| Tool | Version | Role |
+|:---|:---:|:---|
+| Python | 3.10+ | Core language |
+| pandas | 2.0+ | Data manipulation and aggregation |
+| NumPy | 1.24+ | Numerical computation |
+| SciPy | 1.10+ | Z-test, chi-square, Mann-Whitney U |
+| statsmodels | 0.14+ | Power analysis and proportion tests |
+| matplotlib | 3.7+ | Static chart generation |
+| Chart.js | 4.4.1 | Interactive dashboard |
+
+---
+
+## 🛠️ Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/RidhimaGupta4/AB-Testing-Case-Study.git
+cd AB-Testing-Case-Study
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Generate experiment data — creates all CSV and JSON files
+python scripts/01_generate_data.py
+
+# Run statistical analysis — creates analysis_results.json
+python scripts/02_statistical_analysis.py
+
+# Generate all 7 charts
+python scripts/03_charts.py
+
+# Open the dashboard
+open dashboard/index.html        # macOS
+start dashboard/index.html       # Windows
+xdg-open dashboard/index.html    # Linux
+```
+
+---
+
+## Limitations
+
+This experiment ran for 14 days in January 2024 — a post-holiday period with relatively stable traffic. Results may differ during high-volatility windows like Black Friday, seasonal sales, or major product launches when user intent and behaviour shift significantly.
+
+The revenue confidence interval is intentionally wide (£223k–£708k). This reflects the natural variance in order values, not uncertainty about the conversion lift. Thirty days of post-launch data will narrow this range.
+
+New users and tablet users showed smaller lifts that did not reach significance after Bonferroni correction. This does not mean the treatment does not work for these groups — the experiment was not powered to detect smaller effects within sub-segments. Dedicated follow-up tests are needed before drawing conclusions for either group.
+
+Long-term retention effects are not captured here. The experiment measures whether users buy during their visit. Whether the simplified checkout experience affects return visit rates or customer lifetime value requires a separate longitudinal study.
+
+---
+
+## Ethics and Data Handling
+
+All user identifiers in this dataset are anonymised tokens. No personal data, IP addresses, cookies, or tracking parameters are stored or processed at any point. The analysis is GDPR compliant by design — there is nothing in this dataset that could identify an individual user.
+
+The synthetic data generation is transparent and documented. Every parameter choice references a public benchmark, and the random seed is fixed so anyone can reproduce the exact dataset from the scripts.
+
+---
+
+## 🖼️ Chart Gallery
+
+### Primary Results Summary
+![Primary Results](outputs/01_primary_results_summary.png)
+
+### Cumulative Conversion Rate — 14 Days
+![Cumulative CR](outputs/02_cumulative_conversion_rate.png)
+
+### 95% Confidence Intervals Across All Metrics
+![Confidence Intervals](outputs/03_confidence_intervals.png)
+
+### Segmentation Analysis
+![Segmentation](outputs/04_segmentation_analysis.png)
+
+### Statistical Power Curve
+![Power Analysis](outputs/05_power_analysis_curve.png)
+
+### Revenue Distribution
+![Revenue](outputs/06_revenue_distribution.png)
+
+### Business Impact Projection
+![Business Impact](outputs/07_business_impact.png)
+
+---
+
+## What This Project Demonstrates
+
+This project was built to show end-to-end product analytics thinking — not just running a test and reporting a p-value. The experiment was pre-registered before data collection to prevent p-hacking. The revenue metric was tested non-parametrically because a t-test on lognormal data gives wrong answers. The segmentation results are explicitly framed as exploratory to avoid overclaiming from underpowered sub-groups.
+
+The SRM check, novelty effect detection, and Bonferroni correction are the things that separate analysts who understand experimentation from those who only know the formula. The business impact section translates the statistical result into a number a finance team or product manager can act on — with an honest confidence range rather than a single point estimate.
+
+---
+
+## 📄 Licence
+
+MIT — free to adapt and extend.
+
 
 ### Secondary Metrics — Bonferroni Correction
 
