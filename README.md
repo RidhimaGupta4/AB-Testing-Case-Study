@@ -11,7 +11,7 @@
 
 ## 🔴 Live Dashboard
 
-[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-1d4ed8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://RidhimaGupta4.github.io/AB-Testing-Case-Study/dashboard/)
+[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-1d4ed8?style=for-the-badge&logoColor=white)](https://RidhimaGupta4.github.io/AB-Testing-Case-Study/dashboard/)
 
 ---
 
