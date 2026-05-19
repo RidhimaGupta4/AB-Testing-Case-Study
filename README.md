@@ -330,7 +330,7 @@ This experiment ran for 14 days in January 2024, a post-holiday period with rela
 
 The revenue confidence interval is intentionally wide (£223k–£708k). This reflects the natural variance in order values, not uncertainty about the conversion lift. Thirty days of post-launch data will narrow this range.
 
-New users and tablet users showed smaller lifts that did not reach significance after Bonferroni correction. This does not mean the treatment does not work for these groups — the experiment was not powered to detect smaller effects within sub-segments. Dedicated follow-up tests are needed before drawing conclusions for either group.
+New users and tablet users showed smaller lifts that did not reach significance after Bonferroni correction. This does not mean the treatment does not work for these groups, the experiment was not powered to detect smaller effects within sub-segments. Dedicated follow-up tests are needed before drawing conclusions for either group.
 
 Long-term retention effects are not captured here. The experiment measures whether users buy during their visit. Whether the simplified checkout experience affects return visit rates or customer lifetime value requires a separate longitudinal study.
 
